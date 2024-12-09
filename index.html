@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Message</title>
     <style>
-        /* General body styling */
+        @import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Impact', sans-serif;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -17,26 +17,24 @@
             margin: 0;
             background-color: #f4f4f4;
         }
-
-        /* Title styling */
         h1 {
-            font-size: 3rem; /* Large title */
+            font-size: 3rem;
             margin-bottom: 20px;
         }
-
-        /* Image styling */
         img {
-            max-width: 50%; /* Make the image smaller */
+            max-width: 70%;
+            max-height: 20%;
             height: auto;
             margin-top: 20px;
+            cursor: pointer;
         }
-
-        /* Hidden message styling */
         .hidden-message {
-            color: transparent;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: rgba(0, 0, 0, 0);
             background: transparent;
             user-select: none;
-            margin-top: 20px;
         }
         .hidden-message:hover,
         .hidden-message:focus,
@@ -47,13 +45,26 @@
     </style>
 </head>
 <body>
-    <h1>STINKY!!!!!!!</h1>
-    <p class="hidden-message">This is the secret message. You found it!</p>
-
-    <img src="peri.jpg" alt="A cool image">
-
-    <audio autoplay>
+    <h1>STINKY!!!!!!!!</h1>
+    <img src="peri.jpg" alt="jiji" id="interactive-image">
+    <p class="hidden-message" id="secret-message">This is the secret message. You found it!</p>
+    <audio id="sound">
         <source src="fart.mp3" type="audio/mpeg">
     </audio>
+    <script>
+        const image = document.getElementById('interactive-image');
+        const audio = document.getElementById('sound');
+        const secretMessage = document.getElementById('secret-message');
+        let clickCount = 0;
+
+        image.addEventListener('click', () => {
+            audio.play();
+            clickCount++;
+            if (clickCount >= 15) {
+                let alpha = Math.min((clickCount - 15) / 10, 1);
+                secretMessage.style.color = `rgba(0, 0, 0, ${alpha})`;
+            }
+        });
+    </script>
 </body>
 </html>
