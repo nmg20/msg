@@ -5,16 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Message</title>
     <style>
+        /* General body styling */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             background-color: #f4f4f4;
         }
+
+        /* Title styling */
+        h1 {
+            font-size: 3rem; /* Large title */
+            margin-bottom: 20px;
+        }
+
+        /* Image styling */
+        img {
+            max-width: 50%; /* Make the image smaller */
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* Hidden message styling */
         .hidden-message {
             color: transparent;
             background: transparent;
             user-select: none;
+            margin-top: 20px;
         }
         .hidden-message:hover,
         .hidden-message:focus,
@@ -22,19 +44,13 @@
             color: black;
             background: yellow;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
-    <h1>STINKI !!!!!</h1>
-    <p>Hover or highlight the text below to reveal the secret message!</p>
+    <h1>STINKY!!!!!!!</h1>
     <p class="hidden-message">This is the secret message. You found it!</p>
 
-    <img src="peri.jpg" alt="jiji">
+    <img src="peri.jpg" alt="A cool image">
 
     <audio autoplay>
         <source src="fart.mp3" type="audio/mpeg">
